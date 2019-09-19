@@ -1,0 +1,47 @@
+.color{
+    background-color: darkcyan;
+    padding:15px
+}
+
+.secondDiv{
+    background-color:silver;
+    padding: 1% 20% 5% 20%
+}
+
+.personal{
+background-color: #ffffff;
+margin-left:10%;
+margin-top:10%;
+}
+.logo{
+    width: 150px;
+    height: 150px
+    ;margin: 10px;
+}
+
+.button{
+    position: absolute;
+    bottom:0;
+    right:0;
+    border:1px solid steelblue;
+    color: steelblue;
+    background-color: #ffffff
+}
+
+
+.filter{
+    padding-right:0px
+}
+
+.firstDiv{
+    display:flex;
+    padding:0 10% 0 18%
+}
+
+.tabledData{
+    margin-top:20px
+}
+
+.carddiv{
+    margin-top:5px
+}

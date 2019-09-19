@@ -1,0 +1,65 @@
+<div>
+    <div class="color">
+        <form [formGroup]="searchUser" (ngSubmit)="onUserSearch()">
+            <div class="col-md-12" class="firstDiv">
+                <div class="col-md-5 ">
+                    <ng-select class="form-control" [items]="filterData" [(ngModel)]="selected" placeholder="Sort"
+                        formControlName="sort" (change)="onFilterSelect();"> </ng-select>
+                </div>
+                <div class="col-md-5 filter">
+                    <input type="text" class="form-control" formControlName="userName" placeholder="User Name">
+                </div>
+                <div>
+                    <button class="form-control" type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="secondDiv" [hidden]="find">
+        <p>Total Results : {{count}}</p>
+        <div class="card carddiv"
+            *ngFor="let data of details | paginate: { itemsPerPage: pageSize, currentPage: pageNumber, totalItems: details.length } | orderBy : filterForSelected; let i = index">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-5 col-md-2">
+                        <img class="rounded-circle z-depth-2 logo" id="product_attr_img" [src]="data.avatar_url"
+                            data-holder-rendered="true" alt=""
+                            onerror="if (this.src != 'error.jpg') this.src = '/assets/error_png_450959.jpg'">
+                    </div>
+                    <div class="col-sm-10 col-md-7">
+                        <div class="personal">
+                            <div class="col-sm-10">
+                                <h5>{{data.login}}</h5>
+                            </div>
+                            <div class="col-sm-10">
+                                <p>Profile URL:{{data.html_url}}</p>
+                            </div>
+                            <div class="col-sm-10">
+                                <p>User ID:{{data.id}}</p>
+                            </div>
+                            <div class="col-sm-10">
+                                <p>User Score:{{data.score}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-md-2">
+                        <button *ngIf="!data.selected" type="button" class="button"
+                            (click)="userdata(data)">DETAILS</button>
+                        <button *ngIf="data.selected" class="button" (click)="collapse(data)">COLLAPSE</button>
+                    </div>
+                </div>
+                <div [hidden]="!data.selected" class="tabledData">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr *ngFor="let repo of data.allRepos">
+                                <td>{{repo.name}}</td>
+                                <td>{{repo.language}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+    </div>
+</div>
