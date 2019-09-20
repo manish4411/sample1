@@ -21,12 +21,12 @@
             *ngFor="let data of details | paginate: { itemsPerPage: pageSize, currentPage: pageNumber, totalItems: details.length } | orderBy : filterForSelected; let i = index">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-sm-5 col-md-2">
+                    <div class="col-md-2 col-sm-5 ">
                         <img class="rounded-circle z-depth-2 logo" id="product_attr_img" [src]="data.avatar_url"
                             data-holder-rendered="true" alt=""
                             onerror="if (this.src != 'error.jpg') this.src = '/assets/error_png_450959.jpg'">
                     </div>
-                    <div class="col-sm-10 col-md-7">
+                    <div class="col-md-7 col-sm-10 ">
                         <div class="personal">
                             <div class="col-sm-10">
                                 <h5>{{data.login}}</h5>
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-5 col-md-2">
+                    <div class="col-md-2 col-sm-5 ">
                         <button *ngIf="!data.selected" type="button" class="button"
                             (click)="userdata(data)">DETAILS</button>
                         <button *ngIf="data.selected" class="button" (click)="collapse(data)">COLLAPSE</button>
