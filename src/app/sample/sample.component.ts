@@ -13,13 +13,10 @@ export class SampleComponent implements OnInit {
   find: boolean = true;
   count;
   allRepos: any = [];
-  submitted: boolean = true;
 
   pageNumber: number = 1;
   pageSize: number = 5;
   totalLength: number = 0;
-  selectedindex: number;
-  dataSource: any;
 
   filterData: any[] = ['Sort by Name(A-Z)', 'Sort by Name(Z-A)', 'Sort by Rank(low-to-high)', 'Sort by Rank(high-to-low)']
   selected: String = this.filterData[0];
